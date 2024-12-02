@@ -3,7 +3,7 @@ from firebase_admin import credentials, db
 import streamlit as st
 import json
 
-json_data = st.secrets[""FIREBASE_CRED ]
+json_data = st.secrets["FIREBASE_CRED"]
 
 firebase_credentials = json.loads(json_data)
 cred = credentials.Certificate(firebase_credentials)
