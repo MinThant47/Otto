@@ -4,8 +4,6 @@ import streamlit as st
 import json
 
 json_data = st.secrets["FIREBASE_CRED"]
-st.write(json_data)
-st.write(json.loads(json_data))
 
 firebase_credentials = json.loads(json_data)
 cred = credentials.Certificate(firebase_credentials)
