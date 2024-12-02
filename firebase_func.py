@@ -1,0 +1,26 @@
+import firebase_admin
+from firebase_admin import credentials, db
+
+cred = credentials.Certificate(r"C:\Users\USER\Machine Learning Projects\Voice Assistant Streamlit\otto-8275b-firebase-adminsdk-1zc00-881e8332a3.json")
+firebase_admin.initialize_app(cred, {
+    'databaseURL': 'https://otto-8275b-default-rtdb.asia-southeast1.firebasedatabase.app/'
+})
+
+# Reference to the database
+ref = db.reference('/')
+
+# Data to be saved
+data = {
+    'response': {
+        'res': "Are you Ok?",
+        'emotion': "Sad"
+    }
+}
+
+# Save data to Firebase Realtime Database
+def save_data_to_firebase(data):
+    ref.set(data)
+    print("Data saved successfully!")
+
+
+
