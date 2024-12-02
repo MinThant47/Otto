@@ -18,10 +18,15 @@ import streamlit as st
 def ask_question(message, sys_message="You are a helpful agent.",
          model="groq:llama-3.2-3b-preview"):
                   
-    api_key = st.secrets["GROQ_API_KEY"]
-    
-    # Set the API key for aisuite
-    client = ai.Client(api_key=api_key)              
+    groq_api_key = st.secrets["GROQ_API_KEY"]
+    provider_configs = {
+            "groq": {
+                "api_key": groq_api_key,
+            }
+        }              
+
+    client = ai.Client()
+    client.configure(provider_configs)
     
     messages = [
         {"role": "system", "content": sys_message},
