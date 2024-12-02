@@ -1,11 +1,11 @@
-import aisuite as ai
+from aisuite.client import AISuite
 import streamlit as st
-import os
+# import os
 # from dotenv import load_dotenv
 # load_dotenv()
 # os.environ['GROQ_API_KEY'] = os.getenv('GROQ_API_KEY')
-os.environ['GROQ_API_KEY'] = st.secrets["GROQ_API_KEY"]
-# client = ai.Client()
+groq_api_key = st.secrets["GROQ_API_KEY"]
+client = AISuite(api_key=groq_api_key)
 
 # messages = [
 #     {"role": "system", "content": "You are a helpful agent, who answers with brevity."},
