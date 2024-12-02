@@ -1,7 +1,7 @@
 import firebase_admin
 from firebase_admin import credentials, db
 
-cred = credentials.Certificate(r"C:\Users\USER\Machine Learning Projects\Voice Assistant Streamlit\otto-8275b-firebase-adminsdk-1zc00-881e8332a3.json")
+cred = credentials.Certificate("https://github.com/MinThant47/Otto/blob/main/otto-8275b-firebase-adminsdk-1zc00-881e8332a3.json")
 firebase_admin.initialize_app(cred, {
     'databaseURL': 'https://otto-8275b-default-rtdb.asia-southeast1.firebasedatabase.app/'
 })
