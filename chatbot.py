@@ -1,10 +1,10 @@
 import aisuite as ai
 import streamlit as st
-# import os
+import os
 # from dotenv import load_dotenv
 # load_dotenv()
 # os.environ['GROQ_API_KEY'] = os.getenv('GROQ_API_KEY')
-
+os.environ['GROQ_API_KEY'] = st.secrets["GROQ_API_KEY"]
 # client = ai.Client()
 
 # messages = [
@@ -17,16 +17,9 @@ import streamlit as st
 
 def ask_question(message, sys_message="You are a helpful agent.",
          model="groq:llama-3.2-3b-preview"):
-                  
-    groq_api_key = st.secrets["GROQ_API_KEY"]
-    provider_configs = {
-            "groq": {
-                "api_key": groq_api_key,
-            }
-        }              
+         
 
     client = ai.Client()
-    client.configure(provider_configs)
     
     messages = [
         {"role": "system", "content": sys_message},
