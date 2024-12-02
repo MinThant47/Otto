@@ -1,31 +1,32 @@
 import streamlit as st
-from groq import Groq
+import aisuite as ai
+
+provider_configs = {
+            "groq": {
+                "api_key": "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",
+            }
+        }
 
 groq_api_key = st.secrets["GROQ_API_KEY"]
 
 # # Request a response from the model
 # response = client.chat.completions.create(model="groq:llama-3.2-3b-preview", messages=messages)
-def ask_question(message, sys_message="You are a helpful agent.",
+def ask(message, sys_message="You are a helpful agent.",
          model="groq:llama-3.2-3b-preview"):
+    # Initialize the AI client for accessing the language model
+    client = ai.Client(provider_configs)
 
-    client = Groq(api_key=groq_api_key)  # Ensure groq_api_key is defined somewhere
+    # Construct the messages list for the chat
+    messages = [
+        {"role": "system", "content": sys_message},
+        {"role": "user", "content": "Please give a one line answer to this question:" + message }
+    ]
 
-    chat_completion = client.chat.completions.create(
-        messages = [
-            {"role": "system", "content": sys_message},
-            {"role": "user", "content": "Please give a one-line answer to this question: " + message}
-        ],
-        model=model,
-    )
-    
-    # Ensure the response contains the expected structure
-    try:
-        response = chat_completion.choices[0].message.content
-    except (IndexError, KeyError) as e:
-        return f"Error: {str(e)}"
+    # Send the messages to the model and get the response
+    response = client.chat.completions.create(model=model, messages=messages)
 
-    return response
-
+    # Return the content of the model's response
+    return response.choices[0].message.content
 
 # def ask_question(message, sys_message="You are a helpful agent.",
 #          model="groq:llama-3.2-3b-preview"):
