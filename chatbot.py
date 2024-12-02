@@ -1,9 +1,9 @@
-# import streamlit as st
+import streamlit as st
 import aisuite as ai
 
 provider_configs = {
             "groq": {
-                "api_key": "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",
+                "api_key": st.secrets["GROQ_API_KEY],
             }
         }
 client = ai.Client(provider_configs=provider_configs)
