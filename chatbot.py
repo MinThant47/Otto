@@ -1,8 +1,8 @@
 import aisuite as ai
-import os
-from dotenv import load_dotenv
-load_dotenv()
-os.environ['GROQ_API_KEY'] = os.getenv('GROQ_API_KEY')
+# import os
+# from dotenv import load_dotenv
+# load_dotenv()
+# os.environ['GROQ_API_KEY'] = os.getenv('GROQ_API_KEY')
 
 # client = ai.Client()
 
@@ -16,8 +16,11 @@ os.environ['GROQ_API_KEY'] = os.getenv('GROQ_API_KEY')
 
 def ask_question(message, sys_message="You are a helpful agent.",
          model="groq:llama-3.2-3b-preview"):
+                  
+    api_key = st.secrets["GROQ_API_KEY"]
     
-    client = ai.Client()
+    # Set the API key for aisuite
+    client = ai.Client(api_key=api_key)              
     
     messages = [
         {"role": "system", "content": sys_message},
