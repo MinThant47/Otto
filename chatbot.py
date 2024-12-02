@@ -6,7 +6,7 @@ provider_configs = {
                 "api_key": "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",
             }
         }
-client = ai.Client(provider_configs)
+client = ai.Client(provider_configs=provider_configs)
 
 # groq_api_key = st.secrets["GROQ_API_KEY"]
 
