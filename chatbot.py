@@ -1,4 +1,4 @@
-import streamlit as st
+# import streamlit as st
 import aisuite as ai
 
 provider_configs = {
@@ -6,8 +6,9 @@ provider_configs = {
                 "api_key": "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",
             }
         }
+client = ai.Client(provider_configs)
 
-groq_api_key = st.secrets["GROQ_API_KEY"]
+# groq_api_key = st.secrets["GROQ_API_KEY"]
 
 # # Request a response from the model
 # response = client.chat.completions.create(model="groq:llama-3.2-3b-preview", messages=messages)
@@ -15,7 +16,6 @@ def ask_question(message, sys_message="You are a helpful agent.",
          model="groq:llama-3.2-3b-preview"):
     # Initialize the AI client for accessing the language model
     client = ai.Client(provider_configs)
-
     # Construct the messages list for the chat
     messages = [
         {"role": "system", "content": sys_message},
