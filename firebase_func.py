@@ -1,8 +1,11 @@
 import firebase_admin
 from firebase_admin import credentials, db
 import streamlit as st
+import json
 
-firebase_credentials = st.secrets["firebase"]['my_project_settings']
+json_data = st.secrets[""FIREBASE_CRED ]
+
+firebase_credentials = json.loads(json_data)
 cred = credentials.Certificate(firebase_credentials)
 
 # cred = credentials.Certificate("https://github.com/MinThant47/Otto/blob/main/otto-8275b-firebase-adminsdk-1zc00-881e8332a3.json")
