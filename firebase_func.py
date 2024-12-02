@@ -1,5 +1,6 @@
 import firebase_admin
 from firebase_admin import credentials, db
+import streamlit as st
 
 firebase_credentials = st.secrets["firebase"]['my_project_settings']
 cred = credentials.Certificate(firebase_credentials)
