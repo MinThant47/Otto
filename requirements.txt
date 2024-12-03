@@ -4,3 +4,4 @@ SpeechRecognition
 firebase-admin
 aisuite[all]
 python-dotenv
+groq
