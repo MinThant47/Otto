@@ -3,5 +3,5 @@ SpeechRecognition
 firebase-admin
 aisuite[all]
 python-dotenv
-groq==0.9.0
-streamlit==1.37.0
+groq
+streamlit
