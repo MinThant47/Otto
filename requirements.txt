@@ -1,7 +1,7 @@
-streamlit
 audio-recorder-streamlit
 SpeechRecognition
 firebase-admin
 aisuite[all]
 python-dotenv
-groq
+groq==0.9.0
+streamlit==1.37.0
